@@ -1,0 +1,19 @@
+server:
+  port: 1881
+spring:
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:29092
+      group-id: group-id
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+  datasource:
+    password: test
+    url: jdbc:postgresql://localhost:5432/payments
+    username: tech
+    hikari:
+      maximum-pool-size: 4
+app:
+  service-payment: http://localhost:9000/payment
+  service-log: http://localhost:9000/log
